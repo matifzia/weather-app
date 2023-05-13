@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const useCityAutoComplete = async (cityName: string): Promise<Array<City>> => {
   const res = await axios.get(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=10&appid=${import.meta.env.VITE_OPEN_WEATHER_KEY
+    `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=10&appid=${import.meta.env.VITE_OPEN_WEATHER_KEY
     }`
   )
   return res.data
@@ -19,7 +19,7 @@ const useWeatherData = async (location: LatLon): Promise<Forecast> => {
 
 const useGetCityFromLocation = async (location: LatLon): Promise<City> => {
   const res = await axios.get(
-    `http://api.openweathermap.org/geo/1.0/reverse?lat=${location.lat}&lon=${location.lon}&limit=1&appid=${import.meta.env.VITE_OPEN_WEATHER_KEY}`
+    `https://api.openweathermap.org/geo/1.0/reverse?lat=${location.lat}&lon=${location.lon}&limit=1&appid=${import.meta.env.VITE_OPEN_WEATHER_KEY}`
   )
   return res.data[0]
 }
